@@ -1,0 +1,119 @@
+* {
+    margin:0;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(#87ceeb 40%,green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-board {
+    width: 70%;
+    height: 80%;
+    border-radius:11px;
+    box-shadow: inset -10px -10px 10px rgba(0,0,0,.2), inset 10px 10px 10px rgba(0,0,0,.2);
+    background-image:url("./images/board-background.jpg");
+    background-position: center center;
+    overflow: hidden;
+    display: flex;
+    position:relative;
+}
+
+.pipe {
+    width:120px;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position:absolute;
+    transition: all 0.1s ease-in-out;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    left:calc(100% + 150px);
+}
+
+.top, .bottom {
+    height: 200px;
+    background:linear-gradient(90deg,#90ee90 1%,green);
+    position:relative;
+}
+
+.top::after, .bottom::before {
+    content: "";
+    width:calc(100% + 12px);
+    height:40px;
+    position: absolute;
+    transform: translateX(-6px);
+    background-color: green;
+    border-radius: 2px;
+}
+
+.top::after {
+    bottom:0px;
+}
+
+.bottom::before {
+    top:0px;
+}
+
+.first-pipe {
+    animation-delay: 1s;
+}
+
+.second-pipe {
+    animation-delay:2s;
+}
+
+.third-pipe {
+    animation-delay: 3s;
+}
+
+@keyframes movePipe{
+    100% {
+        left:-120px;
+    }
+}
+
+.bird-container {
+    width: 60px;
+    height:60px;
+    position:absolute;
+    left:30px;
+    top:50%;
+    transform: rotateZ(-10deg);
+}
+
+.bird-container img {
+    width:100%;
+    height:100%;
+    object-fit: contain;
+    user-select: none;
+}
+
+.overlay {
+    position:fixed;
+    left:0px;
+    top:0px;
+    height:100vh;
+    width:100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-game-btn {
+    padding:10px 20px;
+    background-color: #2a2ab4;
+    color:white;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
